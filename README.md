@@ -1,6 +1,11 @@
 # oleksandr-kravchenko-e2e
 RisePeople
 
+To run the test:
+1. Clone 'youtube.spec.js' file into /integraion folder of Cypress
+2. Find the file via Cypress
+3. Run the test
+
 Node.js Version (14.15.1)
 
 Chrome Version 90
