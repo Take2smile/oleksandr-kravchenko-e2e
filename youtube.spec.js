@@ -13,13 +13,19 @@ describe('Test for RisePeople', () => {
 		cy.get('#search-icon-legacy')
 			.click()
 
-		//click on the video
+		//click on the searched video
 		cy.contains('The whole working-from-home thing — Apple')
 			.click()	
 
-		//wait for the page to load.
-		cy.intercept('https://www.youtube.com/generate_204*').as('getVideo')
-			cy.wait('@getVideo')
+		//wait for loading and statusCode
+		cy.intercept('https://www.youtube.com/generate_204*', (req) => {
+			req.reply({
+
+				statusCode: 204,
+				delay:3000
+		})  
+			}).as('getVideo')
+		cy.wait('@getVideo')
 
 		//Assert that the title of the video matches what you searched for previously 
 		cy.get('#info-contents')
@@ -34,4 +40,3 @@ describe('Test for RisePeople', () => {
 			.and('have.attr', 'href', '/channel/UCE_M8A5yxnLfW0KghEeajjw')
 	})
 })
-
