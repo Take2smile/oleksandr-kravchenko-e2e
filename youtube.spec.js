@@ -3,10 +3,13 @@ describe('Test for RisePeople', () => {
 		
 		//Visit youtube.com
 		cy.visit('https://www.youtube.com/') 
+		
 		//Search for “The whole working-from-home thing — Apple” 
 		//cy.pause()
 		cy.get('#search')
 			.type('The whole working-from-home thing — Apple')
+		
+		//Click Search
 		cy.get('#search-icon-legacy')
 			.click()
 
@@ -15,8 +18,7 @@ describe('Test for RisePeople', () => {
 			.click()	
 
 		//wait for the page to load.
-		cy.intercept('https://www.youtube.com/generate_204*')
-				.as('getVideo')
+		cy.intercept('https://www.youtube.com/generate_204*').as('getVideo')
 			cy.wait('@getVideo')
 
 		//Assert that the title of the video matches what you searched for previously 
