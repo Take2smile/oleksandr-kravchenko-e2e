@@ -1,5 +1,5 @@
 # oleksandr-kravchenko-e2e
-RisePeople
+
 
 To run the test:
 1. Clone 'youtube.spec.js' file into /integraion folder of Cypress
