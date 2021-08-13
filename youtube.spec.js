@@ -1,4 +1,4 @@
-describe('Test for RisePeople', () => {
+describe('Test for YouTube', () => {
 	it('Verify title and uploader info of found video', () => {
 		
 		//Visit youtube.com
